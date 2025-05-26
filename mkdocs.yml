@@ -1,5 +1,37 @@
 site_name: My Wiki
 
+
 nav:
-  - Home: home.md
-  - StatusReport1: StatusReport1.md
+  - Gnatt Chart: Gnatt-Chart.md
+  - Proposal: Proposal.md
+  - Week 1:
+      - Proposal: Proposal.md
+  - Week 2:
+      - Status Report: status-reports/status-report1.md
+  - Week 3: 
+      - Status Report: status-reports/status-report2.md
+      - Use Cases: usecase.md
+  - Week 4:
+      - Status Report: status-reports/status-report3.md 
+      - Figma: 'https://www.figma.com/design/Xo5ZwGZhR0lMjVoGqHKCcr/CarbonRoughFigma?node-id=0-1&t=rj1thUGQ5IFmG4RJ-1'
+  - Week 5:
+      - Status Report: status-reports/status-report4.md
+      - ERD: erd.md 
+      - Midterm Presentation: MidtermPPTX.md
+  - Week 6:
+      - Status Report: status-reports/status-report5.md
+      - Activity Diagram: activity-diagram.md
+  - Week 7:
+      - Status Report: status-reports/status-report6.md
+      - Class Diagram: class-diagram.md
+  - Week 8:
+      - Status Report: status-reports/status-report7.md
+      - Heuristic Evaluation: HE.md
+  - Week 9:
+      - Status Report: status-reports/status-report8.md
+      - Final Gnatt Chart: Gnatt-Chart.md
+
+      
+
+  
+  
