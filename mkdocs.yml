@@ -1,0 +1,5 @@
+site_name: My Wiki
+
+nav:
+  - Home: home.md
+  - StatusReport1: StatusReport1.md
