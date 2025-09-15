@@ -1,6 +1,6 @@
 # Welcome to the CFO Wiki
 
 
-This is my home page for my Carbon Footprint Optimization tool I am building for my Senior Project at NEIT.
+This is the homepage of my Wiki containing documentation for my Carbon Footprint Optimizer App. The complete documentation can be found in this Wiki. My completed project can also be accessed here at: https://cfo-platform.vercel.app/login 
 
 
