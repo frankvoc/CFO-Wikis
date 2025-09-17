@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Midterm Presentation - My Wiki</title>
+        <title>Tech Spec Document - My Wiki</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -95,7 +95,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Week 5</a>
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Week 5</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
@@ -107,7 +107,7 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Midterm Presentation</a>
+    <a href="../MidtermPPTX/" class="dropdown-item">Midterm Presentation</a>
 </li>
                                 </ul>
                             </li>
@@ -164,7 +164,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Semester 2</a>
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Semester 2</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
@@ -208,7 +208,7 @@
 </li>
                                     
 <li>
-    <a href="../TechSpec/" class="dropdown-item">Tech Spec Document</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Tech Spec Document</a>
 </li>
                                 </ul>
                             </li>
@@ -221,12 +221,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../erd/" class="nav-link">
+                                <a rel="prev" href="../FinalPresentationS2/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../status-reports/status-report5/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -252,7 +252,246 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p><a href="../files/MidtermPresentation_Vocatura-1.pptx">Download Presentation</a></p></div>
+<p><strong>Carbon Route Optimizer - Functional &amp; Technical Specification</strong></p>
+<p><strong>Executive Summary</strong></p>
+<p>Carbon Route Optimizer is a web-based application that helps users reduce their carbon footprint by comparing multiple route options and selecting the most environmentally efficient path for their journeys. The system leverages Google's routing infrastructure to provide real-time route optimization with AI.</p>
+<p><strong>1. Functional Specification</strong></p>
+<p><strong>1.1 User Registration &amp; Authentication</strong></p>
+<p><strong>Purpose:</strong> Secure user account management with personalized data tracking</p>
+<p><strong>User Flow:</strong></p>
+<ol>
+<li>User navigates to registration page</li>
+<li>Enters name, email, password (minimum 6 characters)</li>
+<li>System validates unique email and creates account</li>
+<li>User redirected to login page. If it does not navigate(odd bug) then remove the /login and go to /dashboard.</li>
+<li>Upon login, JWT token stored in browser cookie (7-day expiration)</li>
+</ol>
+<p><strong>Security Features:</strong></p>
+<ul>
+<li>Passwords hashed with bcrypt (12 salt rounds)</li>
+<li>JWT tokens for session management</li>
+<li>Protected routes via middleware</li>
+<li>Automatic logout on token expiration</li>
+</ul>
+<p><strong>1.2 Route Optimization</strong></p>
+<p><strong>Core Functionality:</strong> Users input origin and destination to receive three optimized route options</p>
+<p><strong>Input Requirements:</strong></p>
+<ul>
+<li>Origin: Text field accepting addresses or landmarks</li>
+<li>Destination: Text field accepting addresses or landmarks</li>
+<li>Vehicle Type: Dropdown selection from 7 preset vehicles</li>
+</ul>
+<p><strong>Vehicle Options:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Vehicle Type</strong></th>
+<th><strong>CO₂ Emissions (g/km)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Electric</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Hybrid</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Compact Car</td>
+<td>120</td>
+</tr>
+<tr>
+<td>Sedan</td>
+<td>150</td>
+</tr>
+<tr>
+<td>SUV</td>
+<td>190</td>
+</tr>
+<tr>
+<td>Van</td>
+<td>250</td>
+</tr>
+<tr>
+<td>Truck</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output - Three Route Options:</strong></p>
+<ol>
+<li><strong>Fastest Route:</strong> Minimizes travel time, typically using highways</li>
+<li><strong>Most Efficient:</strong> Minimizes distance and emissions</li>
+<li><strong>Balanced Option:</strong> Optimal combination of time and emissions</li>
+</ol>
+<p><strong>Each route displays:</strong></p>
+<ul>
+<li>Total distance (km)</li>
+<li>Estimated duration (hours and minutes)</li>
+<li>CO₂ emissions (kg)</li>
+<li>CO₂ saved compared to baseline (kg)</li>
+<li>Option to view in Google Maps</li>
+</ul>
+<p><strong>1.3 Dashboard Features</strong></p>
+<p><strong>Statistics Cards:</strong></p>
+<ul>
+<li>Total routes optimized (lifetime)</li>
+<li>Total CO₂ emissions saved (kg)</li>
+<li>Total distance traveled (km)</li>
+<li>Environmental equivalents (trees planted)</li>
+</ul>
+<p><strong>Route History:</strong></p>
+<ul>
+<li>Last 10 optimized routes displayed</li>
+<li>Shows origin, destination, date, savings</li>
+<li>Color-coded optimization type badges</li>
+</ul>
+<p><strong>CO₂ Savings Chart:</strong></p>
+<ul>
+<li>7-day trend line graph</li>
+<li>Daily emissions saved visualization</li>
+<li>Responsive to user activity patterns</li>
+</ul>
+<p><strong>1.4 Analytics Page</strong></p>
+<p><strong>Comprehensive metrics including:</strong></p>
+<ul>
+<li>Vehicle usage breakdown (pie chart)</li>
+<li>Optimization preference distribution</li>
+<li>Daily/weekly/monthly activity trends</li>
+<li>Environmental impact equivalents:</li>
+<li>Trees planted equivalent (20kg CO₂ = 1 tree)</li>
+<li>Gallons of gas saved (2.3kg CO₂ = 1 gallon)</li>
+<li>Miles optimized</li>
+</ul>
+<p><strong>1.5 Route Comparison Page</strong></p>
+<p><strong>Enhanced comparison interface:</strong></p>
+<ul>
+<li>Side-by-side route cards</li>
+<li>Visual recommendation badges</li>
+<li>One-click route selection</li>
+<li>Detailed metrics per route</li>
+<li>Environmental impact summary</li>
+</ul>
+<p><strong>2. Technical Specification</strong></p>
+<p><strong>2.1 System Architecture</strong></p>
+<p><strong>Frontend:</strong></p>
+<ul>
+<li>Framework: Next.js 14 (App Router)</li>
+<li>Language: TypeScript 5.x</li>
+<li>Styling: Tailwind CSS 3.x</li>
+<li>Components: shadcn/ui (Radix UI based)</li>
+<li>State Management: React useState/useEffect</li>
+<li>Data Visualization: Recharts</li>
+</ul>
+<p><strong>Backend:</strong></p>
+<ul>
+<li>Runtime: Node.js 18+</li>
+<li>API: Next.js API Routes (serverless functions)</li>
+<li>ORM: Prisma 5.x</li>
+<li>Authentication: Custom JWT implementation</li>
+</ul>
+<p><strong>Database:</strong></p>
+<ul>
+<li>PostgreSQL 15 (Supabase hosted)</li>
+<li>Connection: PgBouncer pooling (port 6543)</li>
+<li>Connection limit: 1 (serverless optimization)</li>
+</ul>
+<p><strong>2.2 External Integrations</strong></p>
+<p><strong>Google Routes API:</strong></p>
+<ul>
+<li>Version: v2 (endpoint)</li>
+<li>Authentication: API Key with domain restrictions</li>
+<li>Rate Limiting: 40,000 requests/month (free tier)</li>
+<li>Field Masks: Optimized response size</li>
+<li>Fallback: Mock data on API failure</li>
+</ul>
+<p><strong>2.3 Security Measures</strong></p>
+<ul>
+<li>HTTPS only (enforced by Vercel)</li>
+<li>Environment variables for secrets</li>
+<li>API key domain restrictions</li>
+<li>SQL injection prevention (Prisma ORM)</li>
+<li>XSS protection (React default escaping)</li>
+<li>CORS configured for production domain</li>
+</ul>
+<p><strong>2.4 Browser Compatibility</strong></p>
+<p><strong>Responsive Design:</strong></p>
+<ul>
+<li>Mobile: 320px minimum width</li>
+<li>Tablet: 768px breakpoint</li>
+<li>Desktop: 1024px+ optimized</li>
+</ul>
+<p><strong>3. User Interface Specifications</strong></p>
+<p><strong>3.1 Design System</strong></p>
+<p><strong>Color Palette:</strong></p>
+<ul>
+<li>Primary: Green (#10b981)</li>
+<li>Secondary: Blue (#3b82f6)</li>
+<li>Warning: Yellow (#f59e0b)</li>
+<li>Error: Red (#ef4444)</li>
+<li>Neutral: Gray scale</li>
+</ul>
+<p><strong>Typography:</strong></p>
+<ul>
+<li>Font: Inter</li>
+<li>Headers: Bold, 2xl-3xl</li>
+<li>Body: Regular, base size</li>
+<li>Captions: Small, gray-600</li>
+</ul>
+<p><strong>3.2 Page Structure</strong></p>
+<p><strong>Public Landing Page:</strong></p>
+<ul>
+<li>Hero section with value proposition</li>
+<li>Global statistics display</li>
+<li>Feature grid (4 cards)</li>
+<li>How it works (3 steps)</li>
+<li>Call-to-action sections</li>
+</ul>
+<p><strong>Dashboard Layout:</strong></p>
+<ul>
+<li>Fixed header with navigation</li>
+<li>3-column grid for stats cards</li>
+<li>2-column layout for form and charts</li>
+<li>Responsive table for route history</li>
+</ul>
+<p><strong>4. Deployment &amp; Infrastructure</strong></p>
+<p><strong>4.1 Hosting</strong></p>
+<p><strong>Platform:</strong> Vercel</p>
+<ul>
+<li>Automatic deployments from GitHub main branch</li>
+<li>Serverless functions for API routes</li>
+<li>CDN distribution globally</li>
+<li>SSL certificate included</li>
+</ul>
+<p><strong>4.2 Environment Configuration</strong></p>
+<p><strong>Required Environment Variables:</strong></p>
+<ul>
+<li>DATABASE_URL: PostgreSQL connection string</li>
+<li>NEXTAUTH_SECRET: JWT signing secret</li>
+<li>NEXTAUTH_URL: Production URL</li>
+<li>GOOGLE_ROUTES_API_KEY: Google Cloud API key</li>
+</ul>
+<p><strong>5. System Limitations</strong></p>
+<ul>
+<li>Route calculations limited to driving mode only</li>
+<li>Maximum route distance: ~5,000 km (Google API limitation)</li>
+<li>Historical data retention: Unlimited (may require archiving at scale)</li>
+<li>Concurrent route calculations: Limited by Google API rate limits</li>
+</ul>
+<p><strong>6. Future Enhancement Considerations</strong></p>
+<ul>
+<li>Multi-stop route optimization</li>
+<li>Fleet management features</li>
+<li>Mobile native applications</li>
+<li>Public transit integration</li>
+<li>Carbon offset purchasing</li>
+<li>Team/enterprise accounts</li>
+<li>Route scheduling</li>
+<li>API for third-party integrations</li>
+</ul>
+<p>This specification represents the current production state of the Carbon Route Optimizer application as deployed at <a href="https://cfo-platform.vercel.app">https://cfo-platform.vercel.app</a>.</p></div>
             </div>
         </div>
 
