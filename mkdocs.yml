@@ -2,7 +2,9 @@ site_name: My Wiki
 
 
 nav:
-  - Gnatt Chart: Gnatt-Chart.md
+  - Gnatt Chart(s): 
+    - GnattChart 1: Gnatt-Chart.md
+    - GnattChart 2: Gnatt-Chart(2).md
   - Proposal: Proposal.md
   - Week 1:
       - Proposal: Proposal.md
@@ -30,7 +32,7 @@ nav:
   - Week 9:
       - Status Report: status-reports/status-report8.md
       - Final Gnatt Chart: Gnatt-Chart.md
-  - Semester 2 SR:
+  - Semester 2 :
       - W2 Status Report: status-reports/s2-status-report2.md
       - W3 Status Report: status-reports/s2-status-report3.md
       - W4 Status Report: status-reports/s2-status-report4.md
@@ -39,4 +41,5 @@ nav:
       - W7 Status Report: status-reports/s2-status-report7.md
       - W8 Status Report: status-reports/s2-status-report8.md
       - W9 Status Report: status-reports/s2-status-report9.md
-      - Final Presentation: FinalPPTX.md
+      - Gnatt Chart P2: Gnatt-Chart(2).md
+      - Final Presentation: FinalPresentationS2.md
